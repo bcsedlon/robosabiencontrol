@@ -1,0 +1,186 @@
+<html>
+<head>
+<title>ROBOSAPIEN CONTROL</title>
+
+<script>
+var droid = new Android();
+var onClick = function(id) {
+    // fire the event that the python script is waiting for.
+	droid.eventPost('onClick', id);
+}
+
+// this function gets called from the python script when it receives new sensor data.
+droid.registerCallback('display_data', function(data) {
+    document.getElementById('output').innerHTML = 'Sensor value: ' + data.data;
+});
+</script>
+
+<style>
+th, td {
+    border: 1px solid black;
+	text-align: center;
+	height: 2.2em;
+}
+tr.arm {
+	background-color: FFCCFF;
+}
+tr.body {
+	background-color: FFCC99;
+}
+tr.movement {
+	background-color: #99FF33;
+}
+tr.program {
+	background-color: #993333;
+}
+tr.control {
+	background-color: white;
+}
+button {
+    width: 6em; height: 2em;
+}
+</style>
+
+</head>
+
+<body bgcolor="green">
+<div id="content">
+<div id="output">-</div>
+<table width="100%">
+	<tr class="arm">
+		<td>
+			<button id="169" onclick="onClick(this.id);">L</button>
+		</td>
+		<td>
+			THUMP
+		</td>
+		<td>
+			<button id="161" onclick="onClick(this.id);">R</button>
+		</td>
+	</tr>
+	<tr class="arm">
+		<td>
+			<button id="172" onclick="onClick(this.id);">L</button>
+		</td>
+		<td>
+			PICK UP
+		</td>
+		<td>
+			<button id="164" onclick="onClick(this.id);">R</button>
+		</td>
+	</tr>
+	<tr class="arm">
+		<td>
+			<button id="173" onclick="onClick(this.id);">FWD</button>
+		</td>
+		<td>
+			LEAN
+		</td>
+		<td>
+			<button id="165" onclick="onClick(this.id);">BCK</button>
+		</td>
+	</tr>
+	<tr class="arm">
+		<td>
+			<button id="170" onclick="onClick(this.id);">L</button>
+		</td>
+		<td>
+			THROW
+		</td>
+		<td>
+			<button id="162" onclick="onClick(this.id);">R</button>
+		</td>
+	</tr>
+	<tr class="body">
+		<td>
+			<button id="163" onclick="onClick(this.id);">SLEEP</button>
+		</td>
+		<td>
+			
+		</td>
+		<td>
+			<button id="171" onclick="onClick(this.id);">LISTEN</button>
+		</td>
+	</tr>
+	<tr class="movement">
+		<td>
+		</td>
+		<td>
+			<button id="166" onclick="onClick(this.id);">FWD STEP</button>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr class="movement">
+		<td>
+			<button id="168" onclick="onClick(this.id);">L STEP</button>
+		</td>
+		<td>
+			<button id="174" onclick="onClick(this.id);">RESET</button>
+		</td>
+		<td>
+			<button id="160" onclick="onClick(this.id);">R STEP</button>
+		</td>
+	</tr>
+	<tr class="movement">
+		<td>
+		</td>
+		<td>
+			<button id="167" onclick="onClick(this.id);">BCK STEP</button>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr class="program">
+		<td>
+			<button id="179" onclick="onClick(this.id);">L SEN EXE</button>
+		</td>
+		<td>
+			<button id="180" onclick="onClick(this.id);">SONIC EXE</button>
+		</td>
+		<td>
+			<button id="178" onclick="onClick(this.id);">R SEN EXE</button>
+		</td>
+	</tr>
+	<tr class="program">
+		<td>
+		</td>
+		<td>
+			<button id="176" onclick="onClick(this.id);">MASTER</button>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr class="program">
+		<td>
+		</td>
+		<td>
+			<button id="771" onclick="onClick(this.id);">WAKE UP</button>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr class="control">
+		<td>
+			<a href="file:///sdcard/sl4a/scripts/rs-red.html">RED</a>
+		</td>
+		<td>
+			<a href="file:///sdcard/sl4a/scripts/rs-green.html">GREEN</a>
+		</td>
+		<td>
+			<a href="file:///sdcard/sl4a/scripts/rs-orange.html">ORANGE</a>			
+		</td>
+	</tr>
+	<tr class="control">
+		<td>
+		</td>
+		<td>
+			<button id="0" onclick="onClick(this.id);">EXIT!</button>
+		</td>
+		<td>
+		</td>
+	</tr>
+</table>	
+</div>
+</body>
+</html>
